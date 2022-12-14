@@ -1,0 +1,44 @@
+* {
+  color: white;
+}
+.content {
+  position: relative;
+  top: 11.5rem;
+  display: flex;
+  flex-direction: column;
+  width: 1500.6px;
+  margin: 0 auto;
+  padding: 0 20px;
+}
+p5 {
+  text-align: center;
+  padding: 0.5rem;
+}
+.card {
+  background-color: unset !important;
+  width: max-content;
+  height: max-content;
+  border: none;
+  transition: 0.75s;
+}
+.card:hover {
+  background-color: #424242 !important;
+}
+img {
+  height: 10rem;
+}
+.bi-pencil-square {
+  font-size: 1.5rem;
+}
+.modal-edit {
+  background-color: #292929 !important;
+  width: 100%;
+  height: 30rem;
+  color: white !important;
+  justify-content: center;
+  align-items: center;
+}
+iframe {
+  width: 100%;
+  height: 100%;
+}

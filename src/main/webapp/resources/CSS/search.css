@@ -1,0 +1,48 @@
+.content {
+    height: min-content;
+    position: relative;
+    top: 11.5rem;
+    display: flex;
+    flex-direction: column;
+    width: 1500.6px;
+    margin: 0 auto;
+    padding: 0 20px;
+  }
+  .anime {
+    display: flex;
+    flex-wrap: wrap;
+    column-gap: 2rem;
+    row-gap: 2rem;
+  }
+  .card {
+    background-color: unset !important;
+    width: min-content;
+    height: min-content;
+    border: none;
+    transition: 0.75s;
+  }
+  .card-img-top {
+    width: 11.3rem !important;
+    height: 17rem;
+  }
+  p5 {
+    text-align: center;
+    color: white;
+    padding: 0.5rem;
+  }
+  .anime > a {
+    text-decoration: none;
+  }
+  .card:hover {
+    background-color: #424242 !important;
+  }
+  .navigatou {
+    display: flex;
+    height: 15.2rem;
+    column-gap: 0.8rem;
+    align-items: end;
+    flex-flow: row;
+    justify-content: flex-end;
+    margin: 1rem;
+    padding: 1rem;
+  }

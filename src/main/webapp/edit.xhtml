@@ -1,0 +1,73 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html
+  xmlns="http://www.w3.org/1999/xhtml"
+  xmlns:h="http://xmlns.jcp.org/jsf/html"
+  xmlns:a="http://xmlns.jcp.org/jsf/passthrough"
+  xmlns:f="http://xmlns.jcp.org/jsf/core"
+  xmlns:ui="http://java.sun.com/jsf/facelets"
+  xmlns:c="http://xmlns.jcp.org/jsp/jstl/core"
+  xmlns:p="http://primefaces.org/ui"
+>
+  <h:head>
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.5.0/font/bootstrap-icons.css"
+    />
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+      integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC"
+      crossorigin="anonymous"
+    />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="/resources/CSS/edit.css" />
+  </h:head>
+
+  <h:body>
+    <div class="content">
+      <h:form>
+        <div class="boxrow">
+          <p5>Score</p5>
+          <div class="val">
+            <p:inputNumber inputStyleClass="editinput" value="#{edit.score}" minValue="0" maxValue="10"></p:inputNumber>
+              <p5>/10</p5>
+          </div>
+        </div>
+        <div class="boxrow">
+          <p5>Progress</p5>
+          <div class="val">
+            <p:inputNumber inputStyleClass="editinput" value="#{edit.progress}" minValue="0" maxValue="#{edit.anime.getEpisode()}"></p:inputNumber>
+            <p5>/#{edit.anime.getEpisode()}</p5>
+          </div>
+        </div>
+        <div class="boxrow">
+          <p5>Status</p5>
+          <div class="val">
+            <h:selectOneMenu value="#{edit.status}">
+              <f:selectItem itemValue="Watching" itemLabel="Watching" />
+              <f:selectItem itemValue="Completed" itemLabel="Completed" />
+              <f:selectItem itemValue="On-Hold" itemLabel="On-Hold" />
+              <f:selectItem itemValue="Dropped" itemLabel="Dropped" />
+              <f:selectItem itemValue="Plan to watch" itemLabel="Plan to watch" />
+            </h:selectOneMenu>
+          </div>
+        </div>
+        <!-- Update -->
+        <h:commandButton value = "Update" action="#{edit.update(edit.UID)}"> </h:commandButton>
+        <!-- Delete -->
+        <h:commandButton value = "Delete" action="#{edit.delete(edit.UID)}"> </h:commandButton>
+        <!--  -->
+      </h:form>
+    </div>
+
+    <script
+      src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"
+    ></script>
+    <script
+      src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"
+      integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM"
+      crossorigin="anonymous"
+    ></script>
+  </h:body>
+</html>

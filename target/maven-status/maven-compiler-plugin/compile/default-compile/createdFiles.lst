@@ -1,0 +1,7 @@
+com\utsuru\controller\anime.class
+com\utsuru\model\User.class
+com\utsuru\controller\edit.class
+com\utsuru\model\Anime.class
+com\utsuru\model\UserReview.class
+com\utsuru\controller\app.class
+com\utsuru\controller\search.class

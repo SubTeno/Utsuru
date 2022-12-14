@@ -1,0 +1,29 @@
+p5 {
+    color: white;
+  }
+  body {
+    background-color: #1e1e1e;
+  }
+
+  .content {
+    width: 100vw;
+    display: flex;
+    height: 100vh;
+    justify-content: center;
+    align-items: center;
+  }
+  form {
+    display: flex;
+    gap: 14px;
+    flex-direction: column;
+    width: 16rem;
+  }
+  .editinput {
+    width: 37px;
+    height: 23px;
+  }
+
+  .boxrow {
+    display: flex;
+    justify-content: space-between;
+  }

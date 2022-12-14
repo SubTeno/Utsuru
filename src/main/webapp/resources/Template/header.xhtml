@@ -1,0 +1,126 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html
+  xmlns="http://www.w3.org/1999/xhtml"
+  xmlns:h="http://xmlns.jcp.org/jsf/html"
+  xmlns:a="http://xmlns.jcp.org/jsf/passthrough"
+  xmlns:f="http://xmlns.jcp.org/jsf/core"
+  xmlns:ui="http://java.sun.com/jsf/facelets"
+  xmlns:c="http://xmlns.jcp.org/jsp/jstl/core"
+  xmlns:p="http://primefaces.org/ui"
+>
+  <div class="header">
+    <c:if test='#{view.viewId != "/home.xhtml"}'>
+      <!-- Home Button -->
+      <a href="/home">
+        <i class="bi bi-house-fill"></i>
+      </a>
+
+      <!-- Search Bar -->
+      <div class="search">
+        <h:form a:class="searchform">
+          <p:inputText
+            a:class="form-control"
+            value="#{search.query}"
+            placeholder="Search"
+            required="true"
+          />
+          <p:commandButton
+            value="Search"
+            action="${search.go}"
+            style="display: none"
+          />
+        </h:form>
+      </div>
+    </c:if>
+    <!-- Login / Register -->
+    <c:choose>
+      <c:when test="${app.user != null}">
+        <div class="useroption">
+          <a href="/home/user" type="button" class="userpage">
+            <i class="bi bi-person-square"></i>
+          </a>
+          <h:form>
+            <p:commandLink
+              ajax="false"
+              action="${app.logout()}"
+            >
+              <i class="bi bi-box-arrow-right"></i>
+            </p:commandLink>
+          </h:form>
+        </div>
+      </c:when>
+      <c:otherwise>
+        <a
+          class="nav-link textNav hover-underline-animation"
+          aria-current="page"
+          href="#exampleModal"
+          data-bs-toggle="modal"
+          >Login/Register</a
+        >
+
+        <!-- Login Modal -->
+        <div
+          class="modal fade"
+          id="exampleModal"
+          tabindex="-1"
+          aria-labelledby="exampleModalLabel"
+          aria-hidden="true"
+        >
+          <div class="modal-dialog modal-dialog-centered secondary">
+            <div class="modal-content">
+              <i class="bi bi-x-lg" data-bs-dismiss="modal" type="button"></i>  
+              <h:form a:class="login">
+                Name
+                <h:inputText required="true" value="#{app.name}" />
+                Password
+                <h:inputSecret required="true" value="#{app.pass}" />
+                <p:commandButton
+                  ajax="false"
+                  value="Login"
+                  action="#{app.login()}"
+                />
+              </h:form>
+              <a
+                class="regnav"
+                href="#Register"
+                data-bs-toggle="modal"
+                data-bs-dismiss="modal"
+                >Register</a
+              >
+            </div>
+          </div>
+        </div>
+
+        <!-- Register Modal -->
+
+        <div
+          class="modal fade"
+          id="Register"
+          aria-hidden="true"
+          aria-labelledby="exampleModalToggleLabel2"
+          tabindex="-1"
+        >
+          <div class="modal-dialog modal-dialog-centered">
+            <div class="modal-content">
+              <h:form a:class="login">
+                Name
+                <h:inputText value="#{app.name}" />
+                Password
+                <h:inputSecret value="#{app.pass}" />
+                <p:commandButton
+                  ajax="false"
+                  value="Register"
+                  action="${app.register()}"
+                />
+              </h:form>
+              <i class="bi bi-x-lg" data-bs-dismiss="modal" type="button"></i>
+            </div>
+          </div>
+        </div>
+      </c:otherwise>
+    </c:choose>
+
+    <!--     -->
+  </div>
+</html>

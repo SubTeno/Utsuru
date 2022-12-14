@@ -1,0 +1,111 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html
+  xmlns="http://www.w3.org/1999/xhtml"
+  xmlns:h="http://xmlns.jcp.org/jsf/html"
+  xmlns:a="http://xmlns.jcp.org/jsf/passthrough"
+  xmlns:f="http://xmlns.jcp.org/jsf/core"
+  xmlns:ui="http://java.sun.com/jsf/facelets"
+  xmlns:c="http://xmlns.jcp.org/jsp/jstl/core"
+>
+  
+  <h:head>
+    <title>User Panel</title>
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+      integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC"
+      crossorigin="anonymous"
+    />
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.5.0/font/bootstrap-icons.css"
+    />
+    <link rel="stylesheet" href="/resources/CSS/header.css" />
+    <link rel="stylesheet" href="/resources/CSS/user.css" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  </h:head>
+
+  <h:body>
+    <ui:include src="/resources/Template/header.xhtml" />
+
+    <div class="content">
+      <div class="content1">
+        <table class="table align-middle">
+          <thead>
+            <tr>
+              <th scope="col">#</th>
+              <th scope="col">Image</th>
+              <th scope="col">Name</th>
+              <th scope="col">Score</th>
+              <th scope="col">Progress</th>
+              <th scope="col">Status</th>
+              <th scope="col"></th>
+            </tr>
+          </thead>
+          <tbody>
+            <!--  -->
+            <ui:repeat var="obj" value="${app.getUser().UR}">
+              <tr>
+                <th scope="row">1</th>
+                <td>
+                  <a href="/home/anime/${obj.anime.IDA}">
+                    <img src="${obj.anime.imgurl}" />
+                  </a>
+                </td>
+                <td>${obj.anime.name}</td>
+                <td>${obj.score}/10</td>
+                <td>${obj.progress}/${obj.anime.episode}</td>
+                <td>${obj.status}</td>
+                <td>
+                  <a
+                    data-bs-target="#editmodal"
+                    aria-current="page"
+                    data-bs-toggle="modal"
+                    href="#"
+                    data-anime-id="${obj.anime.IDA}"
+                    onclick="edit(this)"
+                    ><i class="bi bi-pencil-square"></i
+                  ></a>
+                </td>
+              </tr>
+            </ui:repeat>
+            <!--  -->
+          </tbody>
+        </table>
+        <!-- Modal -->
+        <div
+          class="modal fade"
+          id="editmodal"
+          tabindex="-2"
+          aria-labelledby="editmodal"
+          aria-hidden="true"
+        >
+          <div class="modal-dialog modal-dialog-centered secondary modal-lg">
+            <div class="modal-content modal-edit modal-content-edit">
+              <i class="bi bi-x-lg" data-bs-dismiss="modal" type="button"></i>
+              <iframe
+                src=""
+                name="targetframe"
+                allowTransparency="true"
+                scrolling="no"
+                frameborder="0"
+                id="editframe"
+              ></iframe>
+            </div>
+          </div>
+        </div>
+        <!--       -->
+      </div>
+    </div>
+    <script
+      src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"
+    ></script>
+    <script src="/resources/JS/user.js"></script>
+    <script
+      src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"
+      integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM"
+      crossorigin="anonymous"
+    ></script>
+  </h:body>
+</html>

@@ -1,0 +1,105 @@
+body {
+  background-color: #1e1e1e;
+}
+.header {
+  margin: 1rem 0rem;
+  position: absolute;
+  width: 100%;
+  display: grid;
+  padding: 1rem;
+  grid-template-columns: auto auto auto;
+  justify-items: center;
+}
+.form-control {
+  background-color: #1c1c1c;
+  color: white;
+}
+.search {
+  grid-column: 2;
+  display: flex;
+}
+.searchform {
+  width: 33rem;
+}
+.textNav {
+  color: white !important;
+  font-family: sans-serif;
+  font-size: large;
+  width: fit-content;
+  height: fit-content;
+  grid-column: 3;
+}
+.bi-house-fill,
+.bi-person-square,
+.bi-box-arrow-right {
+  color: white;
+  font-size: 2rem;
+}
+
+.bi-house-fill {
+  grid-column: 1;
+}
+.useroption {
+  grid-column: 3;
+  display: flex;
+  gap: 1rem;
+}
+.modal-content {
+  background-color: #292929 !important;
+  width: 100%;
+  height: 22rem;
+  color: white !important;
+  justify-content: center;
+  align-items: center;
+}
+.login {
+  display: flex;
+  flex-direction: column;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 0.7rem;
+  align-items: center;
+}
+.bi-x-lg {
+  position: absolute;
+  top: 0;
+  right: 0;
+  margin: 0.5rem;
+  padding: 0.5rem 0.7rem;
+}
+.regnav {
+  align-self: flex-end;
+  position: relative;
+  right: 1rem;
+}
+
+.hover-underline-animation {
+  display: inline-block;
+  position: relative;
+  color: #ffffff;
+}
+
+.hover-underline-animation:after {
+  content: "";
+  position: absolute;
+  width: 100%;
+  -webkit-transform: scaleX(0);
+  transform: scaleX(0);
+  height: 2px;
+  bottom: 0;
+  left: 0;
+  background-color: #ffffff;
+  -webkit-transform-origin: bottom right;
+  transform-origin: bottom right;
+  -webkit-transition: -webkit-transform 0.25s ease-out;
+  transition: -webkit-transform 0.25s ease-out;
+  transition: transform 0.25s ease-out;
+  transition: transform 0.25s ease-out, -webkit-transform 0.25s ease-out;
+}
+
+.hover-underline-animation:hover:after {
+  -webkit-transform: scaleX(1);
+  transform: scaleX(1);
+  -webkit-transform-origin: bottom left;
+  transform-origin: bottom left;
+}
